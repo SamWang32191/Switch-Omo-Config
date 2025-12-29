@@ -2,8 +2,45 @@
 # Switch oh-my-opencode configuration profiles
 # Usage: ./switch-omo-config.sh
 
-CONFIG_DIR="$HOME/.config/opencode"
+CENTRAL_CONFIG_DIR="$HOME/.config/opencode"
+PROJECT_CONFIG_DIR="$PWD/.opencode"
+
+CONFIG_DIR="$CENTRAL_CONFIG_DIR"
 TARGET_FILE="$CONFIG_DIR/oh-my-opencode.json"
+
+if [[ -d "$PROJECT_CONFIG_DIR" ]]; then
+    CONFIG_DIR="$PROJECT_CONFIG_DIR"
+    TARGET_FILE="$CONFIG_DIR/oh-my-opencode.json"
+
+    PROJECT_CHOICE_FILE="$PROJECT_CONFIG_DIR/.switch-omo-config.copy-profiles"
+
+    if compgen -G "$CENTRAL_CONFIG_DIR/oh-my-opencode-*.json" > /dev/null; then
+        copy_profiles=""
+        if [[ -f "$PROJECT_CHOICE_FILE" ]]; then
+            copy_profiles=$(tr -d ' \t\r\n' < "$PROJECT_CHOICE_FILE")
+        fi
+
+        if [[ ! "$copy_profiles" =~ ^[YyNn]$ ]]; then
+            echo "Detected .opencode in current directory: $PROJECT_CONFIG_DIR"
+            read -r -p "Copy central oh-my-opencode-*.json profiles into $PROJECT_CONFIG_DIR? [y/N] " copy_profiles
+            if [[ "$copy_profiles" =~ ^[Yy]$ ]]; then
+                printf '%s\n' "y" > "$PROJECT_CHOICE_FILE"
+            else
+                printf '%s\n' "n" > "$PROJECT_CHOICE_FILE"
+            fi
+        fi
+
+        if [[ "$copy_profiles" =~ ^[Yy]$ ]]; then
+            for src in "$CENTRAL_CONFIG_DIR"/oh-my-opencode-*.json; do
+                dest="$PROJECT_CONFIG_DIR/$(basename "$src")"
+                if [[ -e "$dest" ]]; then
+                    continue
+                fi
+                cp "$src" "$dest"
+            done
+        fi
+    fi
+fi
 
 # Colors
 CYAN='\033[0;36m'

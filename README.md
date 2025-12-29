@@ -12,7 +12,9 @@ Quickly switch between different `oh-my-opencode` configurations without manuall
 
 - macOS (uses `md5` for file comparison)
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) installed
-- Multiple config profiles named `oh-my-opencode-*.json` in `~/.config/opencode/`
+- At least one profile named `oh-my-opencode-*.json` in either:
+  - `~/.config/opencode/` (global profiles)
+  - `.opencode/` in your project (project-local profiles)
 
 ## Installation
 
@@ -78,13 +80,25 @@ Use arrow keys to navigate, Enter to select, q to quit
 
 ## How it works
 
-1. Scans `~/.config/opencode/` for files matching `oh-my-opencode-*.json`
-2. Compares file hashes to identify which profile is currently active
-3. On selection, copies the chosen file to `oh-my-opencode.json`
+1. Detects whether you’re in a project that has a `.opencode/` directory.
+2. Chooses the working config directory:
+   - If `.opencode/` exists in the current directory: uses `.opencode/`
+   - Otherwise: uses `~/.config/opencode/`
+3. (Project-local only, first run) Prompts whether to copy global profiles `~/.config/opencode/oh-my-opencode-*.json` into `.opencode/`.
+   - Your answer is persisted to `.opencode/.switch-omo-config.copy-profiles` (`y` or `n`) so you won’t be asked again in that project.
+4. Scans the chosen directory for `oh-my-opencode-*.json`, compares hashes to find the active profile, and copies the selected profile to `oh-my-opencode.json` in the same directory.
 
 > **Note**: After switching configs, you must exit and reopen OpenCode for the changes to take effect. To continue from your previous session, use `/session` and select the last session.
 
+## Reset the project prompt
+
+To be asked again whether to copy global profiles into a specific project’s `.opencode/`, delete this file in that project:
+
+- `.opencode/.switch-omo-config.copy-profiles`
+
 ## Config file structure
+
+### Global mode (no `.opencode/` in current directory)
 
 ```
 ~/.config/opencode/
@@ -94,6 +108,18 @@ Use arrow keys to navigate, Enter to select, q to quit
 ├── oh-my-opencode-google.json
 ├── oh-my-opencode-copilot.json
 └── oh-my-opencode-baseline.json
+```
+
+### Project-local mode (when `.opencode/` exists)
+
+```
+./.opencode/
+├── oh-my-opencode.json        # Active oh-my-opencode config (managed by this tool)
+├── oh-my-opencode-ChatGPT.json
+├── oh-my-opencode-google.json
+├── oh-my-opencode-copilot.json
+├── oh-my-opencode-baseline.json
+└── .switch-omo-config.copy-profiles  # Persists copy prompt answer (y/n)
 ```
 
 ## Known Issues
