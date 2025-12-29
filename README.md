@@ -2,7 +2,7 @@
 
 Interactive CLI tool to switch between [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) configuration profiles.
 
-![Demo](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
+![Version](https://img.shields.io/badge/version-1.04-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
 
 ## What it does
 
@@ -81,20 +81,23 @@ Use arrow keys to navigate, Enter to select, q to quit
 ## How it works
 
 1. Detects whether you’re in a project that has a `.opencode/` directory.
-2. Chooses the working config directory:
-   - If `.opencode/` exists in the current directory: uses `.opencode/`
-   - Otherwise: uses `~/.config/opencode/`
-3. (Project-local only, first run) Prompts whether to copy global profiles `~/.config/opencode/oh-my-opencode-*.json` into `.opencode/`.
-   - Your answer is persisted to `.opencode/.switch-omo-config.copy-profiles` (`y` or `n`) so you won’t be asked again in that project.
+2. If `.opencode/` does not exist, prompts whether to create it for project-local switching.
+   - Your answer is persisted to `./.switch-omo-config.create-opencode` (`y` or `n`) so you won’t be asked again in that directory.
+   - If you answer `y`, the script creates `./.opencode/` and continues in project-local mode.
+3. (Project-local only, first run) Prompts whether to copy global profiles `~/.config/opencode/oh-my-opencode-*.json` into `./.opencode/`.
+   - Your answer is persisted to `./.opencode/.switch-omo-config.copy-profiles` (`y` or `n`) so you won’t be asked again in that project.
 4. Scans the chosen directory for `oh-my-opencode-*.json`, compares hashes to find the active profile, and copies the selected profile to `oh-my-opencode.json` in the same directory.
 
 > **Note**: After switching configs, you must exit and reopen OpenCode for the changes to take effect. To continue from your previous session, use `/session` and select the last session.
 
-## Reset the project prompt
+## Reset the project prompts
 
-To be asked again whether to copy global profiles into a specific project’s `.opencode/`, delete this file in that project:
+To be asked again in a project directory, delete either (or both):
 
-- `.opencode/.switch-omo-config.copy-profiles`
+- `./.switch-omo-config.create-opencode` (re-ask whether to create `./.opencode/`)
+- `./.opencode/.switch-omo-config.copy-profiles` (re-ask whether to copy global profiles)
+
+If you want a full reset for that directory, delete `./.opencode/` as well.
 
 ## Config file structure
 
@@ -113,13 +116,14 @@ To be asked again whether to copy global profiles into a specific project’s `.
 ### Project-local mode (when `.opencode/` exists)
 
 ```
+./.switch-omo-config.create-opencode  # Persists create prompt answer (y/n)
 ./.opencode/
-├── oh-my-opencode.json        # Active oh-my-opencode config (managed by this tool)
+├── oh-my-opencode.json              # Active oh-my-opencode config (managed by this tool)
 ├── oh-my-opencode-ChatGPT.json
 ├── oh-my-opencode-google.json
 ├── oh-my-opencode-copilot.json
 ├── oh-my-opencode-baseline.json
-└── .switch-omo-config.copy-profiles  # Persists copy prompt answer (y/n)
+└── .switch-omo-config.copy-profiles # Persists copy prompt answer (y/n)
 ```
 
 ## Known Issues
@@ -152,6 +156,13 @@ Add this to `~/.config/opencode/opencode.json` (or project `opencode.json`) and 
   }
 }
 ```
+
+## Changelog
+
+- **v1.04** - Added version badge and changelog to README
+- **v1.03** - Project-local `.opencode/` directory support with creation prompt
+- **v1.02** - Standardized agent models (`frontend-ui-ux-engineer`, `document-writer`, `multimodal-looker`)
+- **v1.01** - Initial public release
 
 ## License
 

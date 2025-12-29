@@ -3,30 +3,63 @@
 # Usage: ./switch-omo-config.sh
 
 CENTRAL_CONFIG_DIR="$HOME/.config/opencode"
-PROJECT_CONFIG_DIR="$PWD/.opencode"
+PROJECT_ROOT_DIR="$PWD"
+PROJECT_CONFIG_DIR="$PROJECT_ROOT_DIR/.opencode"
 
 CONFIG_DIR="$CENTRAL_CONFIG_DIR"
 TARGET_FILE="$CONFIG_DIR/oh-my-opencode.json"
 
+use_project_config_dir="false"
+
 if [[ -d "$PROJECT_CONFIG_DIR" ]]; then
+    use_project_config_dir="true"
+else
+    PROJECT_CREATE_CHOICE_FILE="$PROJECT_ROOT_DIR/.switch-omo-config.create-opencode"
+
+    create_opencode=""
+    if [[ -f "$PROJECT_CREATE_CHOICE_FILE" ]]; then
+        create_opencode=$(tr -d ' \t\r\n' < "$PROJECT_CREATE_CHOICE_FILE")
+    fi
+
+    if [[ ! "$create_opencode" =~ ^[YyNn]$ ]]; then
+        echo "No .opencode directory detected in current directory: $PROJECT_ROOT_DIR"
+        read -r -p "Create .opencode directory here for project-local switching? [y/N] " create_opencode
+        if [[ "$create_opencode" =~ ^[Yy]$ ]]; then
+            printf '%s\n' "y" > "$PROJECT_CREATE_CHOICE_FILE"
+        else
+            printf '%s\n' "n" > "$PROJECT_CREATE_CHOICE_FILE"
+        fi
+    fi
+
+    if [[ "$create_opencode" =~ ^[Yy]$ ]]; then
+        if mkdir -p "$PROJECT_CONFIG_DIR" && [[ -d "$PROJECT_CONFIG_DIR" ]]; then
+            use_project_config_dir="true"
+        else
+            echo "Error: Failed to create $PROJECT_CONFIG_DIR (check permissions)"
+            use_project_config_dir="false"
+        fi
+    fi
+fi
+
+if [[ "$use_project_config_dir" == "true" ]]; then
     CONFIG_DIR="$PROJECT_CONFIG_DIR"
     TARGET_FILE="$CONFIG_DIR/oh-my-opencode.json"
 
-    PROJECT_CHOICE_FILE="$PROJECT_CONFIG_DIR/.switch-omo-config.copy-profiles"
+    PROJECT_COPY_CHOICE_FILE="$PROJECT_CONFIG_DIR/.switch-omo-config.copy-profiles"
 
     if compgen -G "$CENTRAL_CONFIG_DIR/oh-my-opencode-*.json" > /dev/null; then
         copy_profiles=""
-        if [[ -f "$PROJECT_CHOICE_FILE" ]]; then
-            copy_profiles=$(tr -d ' \t\r\n' < "$PROJECT_CHOICE_FILE")
+        if [[ -f "$PROJECT_COPY_CHOICE_FILE" ]]; then
+            copy_profiles=$(tr -d ' \t\r\n' < "$PROJECT_COPY_CHOICE_FILE")
         fi
 
         if [[ ! "$copy_profiles" =~ ^[YyNn]$ ]]; then
             echo "Detected .opencode in current directory: $PROJECT_CONFIG_DIR"
             read -r -p "Copy central oh-my-opencode-*.json profiles into $PROJECT_CONFIG_DIR? [y/N] " copy_profiles
             if [[ "$copy_profiles" =~ ^[Yy]$ ]]; then
-                printf '%s\n' "y" > "$PROJECT_CHOICE_FILE"
+                printf '%s\n' "y" > "$PROJECT_COPY_CHOICE_FILE"
             else
-                printf '%s\n' "n" > "$PROJECT_CHOICE_FILE"
+                printf '%s\n' "n" > "$PROJECT_COPY_CHOICE_FILE"
             fi
         fi
 
