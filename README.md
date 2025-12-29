@@ -82,6 +82,8 @@ Use arrow keys to navigate, Enter to select, q to quit
 2. Compares file hashes to identify which profile is currently active
 3. On selection, copies the chosen file to `oh-my-opencode.json`
 
+> **Note**: After switching configs, you must exit and reopen OpenCode for the changes to take effect. To continue from your previous session, use `/session` and select the last session.
+
 ## Config file structure
 
 ```
