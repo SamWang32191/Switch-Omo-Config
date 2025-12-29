@@ -96,6 +96,37 @@ Use arrow keys to navigate, Enter to select, q to quit
 └── oh-my-opencode-baseline.json
 ```
 
+## Known Issues
+
+### Anthropic "Invalid signature in thinking block" error
+
+After switching back to Anthropic models within the same session, you may experience:
+
+```
+messages.1.content.0: Invalid 'signature' in 'thinking' block
+```
+
+**Solution**: Disable "thinking" for Anthropic models in your OpenCode config.
+
+Add this to `~/.config/opencode/opencode.json` (or project `opencode.json`) and restart OpenCode:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "anthropic": {
+      "models": {
+        "claude-sonnet-4-5": {
+          "options": {
+            "thinking": { "type": "disabled" }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ## License
 
 MIT
