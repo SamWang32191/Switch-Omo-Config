@@ -11,7 +11,7 @@
       "model": "google/gemini-3-pro-high"
     },
     "multimodal-looker": {
-      "model": "google/gemini-2.5-flash"
+      "model": "google/gemini-3-flash"
     }
   }
 }

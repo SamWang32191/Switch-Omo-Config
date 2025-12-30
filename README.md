@@ -2,7 +2,7 @@
 
 Interactive CLI tool to switch between [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) configuration profiles.
 
-![Version](https://img.shields.io/badge/version-1.04-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
+![Version](https://img.shields.io/badge/version-1.05-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
 
 ## What it does
 
@@ -159,6 +159,7 @@ Add this to `~/.config/opencode/opencode.json` (or project `opencode.json`) and 
 
 ## Changelog
 
+- **v1.05** - Upgraded `multimodal-looker` agent from `gemini-2.5-flash` to `gemini-3-flash`
 - **v1.04** - Added version badge and changelog to README
 - **v1.03** - Project-local `.opencode/` directory support with creation prompt
 - **v1.02** - Standardized agent models (`frontend-ui-ux-engineer`, `document-writer`, `multimodal-looker`)
