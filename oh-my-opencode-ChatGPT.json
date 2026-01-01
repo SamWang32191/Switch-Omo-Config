@@ -33,17 +33,17 @@
       "description": "Fast agent for codebase exploration and pattern matching"
     },
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-pro-high",
+      "model": "google/antigravity-gemini-3-pro-high",
       "temperature": 0.4,
       "description": "Designer-turned-developer for stunning UI/UX implementation"
     },
     "document-writer": {
-      "model": "google/gemini-3-pro-high",
+      "model": "google/antigravity-gemini-3-pro-high",
       "temperature": 0.3,
       "description": "Technical writing expert for documentation and guides"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash",
+      "model": "google/antigravity-gemini-3-flash",
       "temperature": 0.2,
       "description": "Analyzes PDFs, images, diagrams beyond raw text"
     }

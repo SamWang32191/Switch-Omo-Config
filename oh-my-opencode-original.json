@@ -5,13 +5,13 @@
       "model": "opencode/grok-code"
     },
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-pro-high"
+      "model": "google/antigravity-gemini-3-pro-high"
     },
     "document-writer": {
-      "model": "google/gemini-3-pro-high"
+      "model": "google/antigravity-gemini-3-pro-high"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash"
     }
   }
 }

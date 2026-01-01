@@ -3,17 +3,17 @@
   "google_auth": false,
   "agents": {
     "Sisyphus": {
-      "model": "google/claude-opus-4-5-thinking",
+      "model": "google/antigravity-claude-opus-4-5-thinking-high",
       "temperature": 0.3,
       "description": "Primary orchestrator agent with powerful AI capabilities"
     },
     "OpenCode-Builder": {
-      "model": "google/claude-opus-4-5-thinking",
+      "model": "google/antigravity-claude-opus-4-5-thinking-high",
       "temperature": 0.3,
       "description": "Default build agent for development tasks"
     },
     "Planner-Sisyphus": {
-      "model": "google/claude-opus-4-5-thinking",
+      "model": "google/antigravity-claude-opus-4-5-thinking-high",
       "temperature": 0.1,
       "description": "Strategic planning agent with minimal creativity"
     },
@@ -23,7 +23,7 @@
       "description": "Expert technical advisor for architecture decisions and code analysis"
     },
     "librarian": {
-      "model": "google/claude-opus-4-5-thinking",
+      "model": "google/antigravity-claude-opus-4-5-thinking-high",
       "temperature": 0.1,
       "description": "Multi-repository analysis, official docs, and implementation examples"
     },
@@ -33,17 +33,17 @@
       "description": "Fast agent for codebase exploration and pattern matching"
     },
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-pro-high",
+      "model": "google/antigravity-gemini-3-pro-high",
       "temperature": 0.4,
       "description": "Designer-turned-developer for stunning UI/UX implementation"
     },
     "document-writer": {
-      "model": "google/gemini-3-pro-high",
+      "model": "google/antigravity-gemini-3-pro-high",
       "temperature": 0.3,
       "description": "Technical writing expert for documentation and guides"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash",
+      "model": "google/antigravity-gemini-3-flash",
       "temperature": 0.2,
       "description": "Analyzes PDFs, images, diagrams beyond raw text"
     }
