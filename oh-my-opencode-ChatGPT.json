@@ -2,10 +2,34 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
   "agents": {
+    "build": {
+      "model": "openai/gpt-5.2"
+    },
+    "plan": {
+      "model": "openai/gpt-5.2"
+    },
     "Sisyphus": {
       "model": "openai/gpt-5.2"
     },
-    "Planner-Sisyphus": {
+    "Sisyphus-Junior": {
+      "model": "openai/gpt-5.1"
+    },
+    "OpenCode-Builder": {
+      "model": "openai/gpt-5.2"
+    },
+    "Prometheus (Planner)": {
+      "model": "openai/gpt-5.2"
+    },
+    "Metis (Plan Consultant)": {
+      "model": "openai/gpt-5.2"
+    },
+    "Momus (Plan Reviewer)": {
+      "model": "openai/gpt-5.2"
+    },
+    "orchestrator-sisyphus": {
+      "model": "openai/gpt-5.2"
+    },
+    "oracle": {
       "model": "openai/gpt-5.2"
     },
     "librarian": {
@@ -14,17 +38,14 @@
     "explore": {
       "model": "opencode/grok-code"
     },
-    "oracle": {
-      "model": "openai/gpt-5.2"
-    },
     "frontend-ui-ux-engineer": {
-      "model": "google/antigravity-gemini-3-pro-high"
+      "model": "quotio/gemini-3-pro-preview"
     },
     "document-writer": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "quotio/gemini-3-flash-preview"
     },
     "multimodal-looker": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "quotio/gemini-3-flash-preview"
     }
   }
 }

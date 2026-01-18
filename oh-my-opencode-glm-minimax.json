@@ -2,11 +2,35 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
   "agents": {
+    "build": {
+      "model": "zai-coding-plan/glm-4.7"
+    },
+    "plan": {
+      "model": "zai-coding-plan/glm-4.7"
+    },
     "Sisyphus": {
       "model": "zai-coding-plan/glm-4.7"
     },
-    "Planner-Sisyphus": {
+    "Sisyphus-Junior": {
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "OpenCode-Builder": {
       "model": "zai-coding-plan/glm-4.7"
+    },
+    "Prometheus (Planner)": {
+      "model": "zai-coding-plan/glm-4.7"
+    },
+    "Metis (Plan Consultant)": {
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "Momus (Plan Reviewer)": {
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "orchestrator-sisyphus": {
+      "model": "zai-coding-plan/glm-4.7"
+    },
+    "oracle": {
+      "model": "minimax/MiniMax-M2.1"
     },
     "librarian": {
       "model": "zai-coding-plan/glm-4.7"
@@ -14,17 +38,14 @@
     "explore": {
       "model": "minimax/MiniMax-M2.1"
     },
-    "oracle": {
-      "model": "minimax/MiniMax-M2.1"
-    },
     "frontend-ui-ux-engineer": {
-      "model": "google/antigravity-gemini-3-pro-high"
+      "model": "quotio/gemini-3-pro-preview"
     },
     "document-writer": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "quotio/gemini-3-flash-preview"
     },
     "multimodal-looker": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "quotio/gemini-3-flash-preview"
     }
   }
 }
