@@ -1,6 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "sisyphus_agent": {
+    "disabled": false,
+    "default_builder_enabled": true,
+    "planner_enabled": true,
+    "replace_plan": true
+  },
+  "git_master": {
+    "commit_footer": false,
+    "include_co_authored_by": false
+  },
   "agents": {
     "build": {
       "model": "openai/gpt-5.2-codex"
@@ -9,7 +19,9 @@
       "model": "openai/gpt-5.2"
     },
     "Sisyphus": {
-      "model": "openai/gpt-5.2-codex"
+      "model": "openai/gpt-5.2-codex",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "Sisyphus-Junior": {
       "model": "openai/gpt-5.1-codex-mini"
@@ -18,16 +30,22 @@
       "model": "openai/gpt-5.2-codex"
     },
     "Prometheus (Planner)": {
-      "model": "openai/gpt-5.2"
+      "model": "openai/gpt-5.2",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "Metis (Plan Consultant)": {
-      "model": "openai/gpt-5.2"
+      "model": "openai/gpt-5.2",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "Momus (Plan Reviewer)": {
       "model": "openai/gpt-5.2"
     },
     "orchestrator-sisyphus": {
-      "model": "openai/gpt-5.2"
+      "model": "openai/gpt-5.2",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "oracle": {
       "model": "openai/gpt-5.2"
@@ -47,5 +65,15 @@
     "multimodal-looker": {
       "model": "openai/gpt-5.2"
     }
+  },
+  "categories": {
+    "visual-engineering": { "model": "openai/gpt-5.2", "temperature": 0.7 },
+    "ultrabrain": { "model": "openai/gpt-5.2", "temperature": 0.1 },
+    "artistry": { "model": "openai/gpt-5.2", "temperature": 0.9 },
+    "quick": { "model": "openai/gpt-5.2", "temperature": 0.3 },
+    "most-capable": { "model": "openai/gpt-5.2", "temperature": 0.1 },
+    "writing": { "model": "openai/gpt-5.2", "temperature": 0.5 },
+    "business-logic": { "model": "openai/gpt-5.2", "temperature": 0.1 },
+    "general": { "model": "openai/gpt-5.2", "temperature": 0.3 }
   }
 }

@@ -1,6 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "sisyphus_agent": {
+    "disabled": false,
+    "default_builder_enabled": true,
+    "planner_enabled": true,
+    "replace_plan": true
+  },
+  "git_master": {
+    "commit_footer": false,
+    "include_co_authored_by": false
+  },
   "agents": {
     "build": {
       "model": "zai-coding-plan/glm-4.7"
@@ -9,7 +19,9 @@
       "model": "zai-coding-plan/glm-4.7"
     },
     "Sisyphus": {
-      "model": "zai-coding-plan/glm-4.7"
+      "model": "zai-coding-plan/glm-4.7",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "Sisyphus-Junior": {
       "model": "minimax/MiniMax-M2.1"
@@ -18,16 +30,22 @@
       "model": "zai-coding-plan/glm-4.7"
     },
     "Prometheus (Planner)": {
-      "model": "zai-coding-plan/glm-4.7"
+      "model": "zai-coding-plan/glm-4.7",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "Metis (Plan Consultant)": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "minimax/MiniMax-M2.1",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "Momus (Plan Reviewer)": {
       "model": "minimax/MiniMax-M2.1"
     },
     "orchestrator-sisyphus": {
-      "model": "zai-coding-plan/glm-4.7"
+      "model": "zai-coding-plan/glm-4.7",
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
+      "permission": { "question": "allow" }
     },
     "oracle": {
       "model": "minimax/MiniMax-M2.1"
@@ -47,5 +65,15 @@
     "multimodal-looker": {
       "model": "quotio/gemini-3-flash-preview"
     }
+  },
+  "categories": {
+    "visual-engineering": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.7 },
+    "ultrabrain": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.1 },
+    "artistry": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.9 },
+    "quick": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.3 },
+    "most-capable": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.1 },
+    "writing": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.5 },
+    "business-logic": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.1 },
+    "general": { "model": "zai-coding-plan/glm-4.7", "temperature": 0.3 }
   }
 }
