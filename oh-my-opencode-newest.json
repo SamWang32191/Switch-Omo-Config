@@ -1,6 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "claude_code": {
+    "mcp": false,
+    "commands": false,
+    "skills": false,
+    "agents": false,
+    "hooks": false
+  },
   "sisyphus_agent": {
     "disabled": false,
     "default_builder_enabled": true,
@@ -12,21 +19,12 @@
     "include_co_authored_by": false
   },
   "agents": {
-    "build": {
-      "model": "opencode/glm-4.7-free"
-    },
-    "plan": {
-      "model": "opencode/glm-4.7-free"
-    },
     "Sisyphus": {
       "model": "opencode/glm-4.7-free",
       "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
       "permission": { "question": "allow" }
     },
     "Sisyphus-Junior": {
-      "model": "opencode/glm-4.7-free"
-    },
-    "OpenCode-Builder": {
       "model": "opencode/glm-4.7-free"
     },
     "Prometheus (Planner)": {
@@ -67,13 +65,13 @@
     }
   },
   "categories": {
-    "visual-engineering": { "model": "opencode/glm-4.7-free", "temperature": 0.7 },
-    "ultrabrain": { "model": "opencode/glm-4.7-free", "temperature": 0.1 },
-    "artistry": { "model": "opencode/glm-4.7-free", "temperature": 0.9 },
+    "visual-engineering": { "model": "anthropic/claude-opus-4-5", "temperature": 0.7 },
+    "ultrabrain": { "model": "anthropic/claude-opus-4-5", "temperature": 0.1 },
+    "artistry": { "model": "anthropic/claude-opus-4-5", "temperature": 0.9 },
     "quick": { "model": "opencode/glm-4.7-free", "temperature": 0.3 },
-    "most-capable": { "model": "opencode/glm-4.7-free", "temperature": 0.1 },
+    "most-capable": { "model": "anthropic/claude-opus-4-5", "temperature": 0.1 },
     "writing": { "model": "opencode/glm-4.7-free", "temperature": 0.5 },
-    "business-logic": { "model": "opencode/glm-4.7-free", "temperature": 0.1 },
+    "business-logic": { "model": "anthropic/claude-opus-4-5", "temperature": 0.1 },
     "general": { "model": "opencode/glm-4.7-free", "temperature": 0.3 }
   }
 }

@@ -1,6 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "claude_code": {
+    "mcp": false,
+    "commands": false,
+    "skills": false,
+    "agents": false,
+    "hooks": false
+  },
   "sisyphus_agent": {
     "disabled": false,
     "default_builder_enabled": true,
@@ -12,22 +19,13 @@
     "include_co_authored_by": false
   },
   "agents": {
-    "build": {
-      "model": "quotio/claude-opus-4.5"
-    },
-    "plan": {
-      "model": "quotio/gemini-claude-opus-4-5-thinking"
-    },
     "Sisyphus": {
       "model": "quotio/gemini-claude-opus-4-5-thinking",
       "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
       "permission": { "question": "allow" }
     },
     "Sisyphus-Junior": {
-      "model": "quotio/claude-sonnet-4.5"
-    },
-    "OpenCode-Builder": {
-      "model": "quotio/claude-opus-4.5"
+      "model": "quotio/gemini-3-flash-preview"
     },
     "Prometheus (Planner)": {
       "model": "quotio/gemini-claude-opus-4-5-thinking",
@@ -51,10 +49,10 @@
       "model": "quotio/gpt-5.2"
     },
     "librarian": {
-      "model": "quotio/claude-sonnet-4.5"
+      "model": "quotio/gemini-claude-sonnet-4-5"
     },
     "explore": {
-      "model": "quotio/grok-code-fast-1"
+      "model": "quotio/gemini-3-flash-preview"
     },
     "frontend-ui-ux-engineer": {
       "model": "quotio/gemini-3-pro-preview"
@@ -74,6 +72,6 @@
     "most-capable": { "model": "quotio/claude-opus-4.5", "temperature": 0.1 },
     "writing": { "model": "quotio/gemini-3-flash-preview", "temperature": 0.5 },
     "business-logic": { "model": "quotio/gpt-5.2", "temperature": 0.1 },
-    "general": { "model": "quotio/claude-sonnet-4.5", "temperature": 0.3 }
+    "general": { "model": "quotio/gemini-claude-sonnet-4-5", "temperature": 0.3 }
   }
 }

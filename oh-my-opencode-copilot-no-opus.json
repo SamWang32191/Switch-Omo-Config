@@ -1,6 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "claude_code": {
+    "mcp": false,
+    "commands": false,
+    "skills": false,
+    "agents": false,
+    "hooks": false
+  },
   "sisyphus_agent": {
     "disabled": false,
     "default_builder_enabled": true,
@@ -12,12 +19,6 @@
     "include_co_authored_by": false
   },
   "agents": {
-    "build": {
-      "model": "github-copilot/claude-sonnet-4.5"
-    },
-    "plan": {
-      "model": "github-copilot/claude-sonnet-4.5"
-    },
     "Sisyphus": {
       "model": "github-copilot/claude-sonnet-4.5",
       "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER.",
@@ -25,9 +26,6 @@
     },
     "Sisyphus-Junior": {
       "model": "github-copilot/claude-haiku-4.5"
-    },
-    "OpenCode-Builder": {
-      "model": "github-copilot/claude-sonnet-4.5"
     },
     "Prometheus (Planner)": {
       "model": "github-copilot/claude-sonnet-4.5",
@@ -68,12 +66,12 @@
   },
   "categories": {
     "visual-engineering": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.7 },
-    "ultrabrain": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.1 },
+    "ultrabrain": { "model": "github-copilot/gpt-5.2", "temperature": 0.1 },
     "artistry": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.9 },
-    "quick": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.3 },
+    "quick": { "model": "github-copilot/gpt-5.1-codex-mini", "temperature": 0.3 },
     "most-capable": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.1 },
-    "writing": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.5 },
-    "business-logic": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.1 },
+    "writing": { "model": "github-copilot/gemini-3-flash-preview", "temperature": 0.5 },
+    "business-logic": { "model": "github-copilot/gpt-5.2", "temperature": 0.1 },
     "general": { "model": "github-copilot/claude-sonnet-4.5", "temperature": 0.3 }
   }
 }
