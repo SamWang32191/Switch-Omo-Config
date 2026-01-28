@@ -42,7 +42,12 @@
     },
     "explore": {
       "model": "google/antigravity-gemini-3-flash",
-      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER. <final_instruction> ALWAYS answer in Traditional Chinese(zh_TW).</final_instruction>"
+      "prompt_append": "ALWAYS USE THE QUESTION TOOL IF YOU NEED TO ASK USER. <final_instruction> ALWAYS answer in Traditional Chinese(zh_TW).</final_instruction>",
+      "permission": {
+        "edit": "deny",
+        "bash": "ask",
+        "webfetch": "allow"
+      }
     },
     "multimodal-looker": {
       "model": "google/antigravity-gemini-3-flash",
