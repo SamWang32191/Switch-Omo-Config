@@ -2,7 +2,7 @@
 
 用於切換 [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) 設定檔的互動式 CLI 工具。
 
-![Version](https://img.shields.io/badge/version-3.2.0-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
+![Version](https://img.shields.io/badge/version-3.3.0-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
 
 ## 功能介紹
 
@@ -12,9 +12,10 @@
 
 - macOS（使用 `md5` 進行檔案比對）
 - 已安裝 [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode)
-- 至少有一個命名為 `oh-my-opencode-*.json` 的設定檔位於：
+- 至少有一個命名為 `oh-my-opencode-*.json` 的設定檔位於以下任一位置：
   - `~/.config/opencode/`（全域設定檔）
   - 專案中的 `.opencode/`（專案本地設定檔）
+  - 腳本所在的資料夾
 
 ## 安裝
 
@@ -159,6 +160,7 @@ messages.1.content.0: Invalid 'signature' in 'thinking' block
 
 ## 更新日誌
 
+- **v3.3.0** - 新增腳本資料夾作為設定檔搜尋路徑
 - **v3.2.0** - 更新所有設定檔以使用改良的架構
 - **v3.1.0** - 新增 sisyphus_agent、git_master 以及所有設定中的 categories
 - **v3.0.0** - 大幅修訂 agent 設定架構

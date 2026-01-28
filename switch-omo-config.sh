@@ -2,6 +2,7 @@
 # Switch oh-my-opencode configuration profiles
 # Usage: ./switch-omo-config.sh
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CENTRAL_CONFIG_DIR="$HOME/.config/opencode"
 PROJECT_ROOT_DIR="$PWD"
 PROJECT_CONFIG_DIR="$PROJECT_ROOT_DIR/.opencode"
@@ -85,7 +86,10 @@ NC='\033[0m' # No Color
 
 # Get list of config files (excluding the main one)
 get_configs() {
-    find "$CONFIG_DIR" -maxdepth 1 -name "oh-my-opencode-*.json" -type f | sort
+    {
+        find "$CONFIG_DIR" -maxdepth 1 -name "oh-my-opencode-*.json" -type f 2>/dev/null
+        find "$SCRIPT_DIR" -maxdepth 1 -name "oh-my-opencode-*.json" -type f 2>/dev/null
+    } | sort -u
 }
 
 # Get current active config by comparing content

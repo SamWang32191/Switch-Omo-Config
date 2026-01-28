@@ -2,7 +2,7 @@
 
 Interactive CLI tool to switch between [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) configuration profiles.
 
-![Version](https://img.shields.io/badge/version-3.2.0-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
+![Version](https://img.shields.io/badge/version-3.3.0-blue) ![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen) ![Shell](https://img.shields.io/badge/shell-bash-blue)
 
 ## What it does
 
@@ -12,9 +12,10 @@ Quickly switch between different `oh-my-opencode` configurations without manuall
 
 - macOS (uses `md5` for file comparison)
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) installed
-- At least one profile named `oh-my-opencode-*.json` in either:
+- At least one profile named `oh-my-opencode-*.json` in any of:
   - `~/.config/opencode/` (global profiles)
   - `.opencode/` in your project (project-local profiles)
+  - The same directory as the script itself
 
 ## Installation
 
@@ -58,12 +59,12 @@ omo-switch
 
 ### Controls
 
-| Key | Action |
-|-----|--------|
-| `↑` or `k` | Move selection up |
-| `↓` or `j` | Move selection down |
-| `Enter` | Apply selected config |
-| `q` | Quit without changes |
+| Key        | Action                |
+| ---------- | --------------------- |
+| `↑` or `k` | Move selection up     |
+| `↓` or `j` | Move selection down   |
+| `Enter`    | Apply selected config |
+| `q`        | Quit without changes  |
 
 ### Example output
 
@@ -159,6 +160,7 @@ Add this to `~/.config/opencode/opencode.json` (or project `opencode.json`) and 
 
 ## Changelog
 
+- **v3.3.0** - Added script directory as additional config search path
 - **v3.2.0** - Updated all configuration files with refined schema
 - **v3.1.0** - Added sisyphus_agent, git_master, and categories to all configs
 - **v3.0.0** - Major overhaul of agent configuration schema
