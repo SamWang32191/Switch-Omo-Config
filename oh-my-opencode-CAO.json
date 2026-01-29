@@ -7,6 +7,9 @@
     "agents": false,
     "hooks": false
   },
+  "disabled_hooks": [
+    "comment-checker"
+  ],
   "sisyphus_agent": {
     "disabled": false,
     "default_builder_enabled": true,
