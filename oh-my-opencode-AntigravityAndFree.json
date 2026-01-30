@@ -7,9 +7,7 @@
     "agents": false,
     "hooks": false
   },
-  "disabled_hooks": [
-    "comment-checker"
-  ],
+  "disabled_hooks": ["comment-checker"],
   "sisyphus_agent": {
     "disabled": false,
     "default_builder_enabled": true,
@@ -22,16 +20,16 @@
   },
   "agents": {
     "sisyphus": {
-      "model": "opencode/claude-opus-4-5",
-      "variant": "max",
-      "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
+      "model": "google/antigravity-claude-opus-4-5-thinking",
+      "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW).",
+      "variant": "max"
     },
     "sisyphus-junior": {
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "opencode/minimax-m2.1-free",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "OpenCode-Builder": {
-      "model": "openai/gpt-5.1-codex-mini",
+      "model": "opencode/minimax-m2.1-free",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "oracle": {
@@ -40,11 +38,11 @@
       "variant": "high"
     },
     "librarian": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "opencode/kimi-k2.5-free",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "explore": {
-      "model": "google/antigravity-gemini-3-flash",
+      "model": "opencode/kimi-k2.5-free",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW).",
       "permission": {
         "edit": "deny",
@@ -57,12 +55,12 @@
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "prometheus": {
-      "model": "opencode/claude-opus-4-5",
+      "model": "google/antigravity-claude-opus-4-5-thinking",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW).",
       "variant": "max"
     },
     "metis": {
-      "model": "opencode/claude-opus-4-5",
+      "model": "google/antigravity-claude-opus-4-5-thinking",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW).",
       "variant": "max"
     },
@@ -72,7 +70,7 @@
       "variant": "medium"
     },
     "atlas": {
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "google/antigravity-claude-sonnet-4-5",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     }
   },
@@ -92,15 +90,15 @@
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "quick": {
-      "model": "google/gemini-3-flash-preview",
+      "model": "opencode/kimi-k2.5-free",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "unspecified-low": {
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "opencode/kimi-k2.5-free",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
     "unspecified-high": {
-      "model": "opencode/claude-opus-4-5",
+      "model": "google/antigravity-claude-opus-4-5-thinking",
       "variant": "max",
       "prompt_append": "ALWAYS use the QUESTION TOOL if you need to ask user. ALWAYS answer in Traditional Chinese(zh_TW)."
     },
